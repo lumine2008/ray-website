@@ -50,7 +50,7 @@ function Hero() {
           <div className="row align-items-center min-vh-100">
             <div className="col-lg-6 hero-text" data-aos="fade-right" data-aos-duration="1000">
               <p className="hero-subtitle">你好，我是</p>
-              <h1 className="hero-title">雷曼</h1>
+              <h1 className="hero-title">雷曼 AI</h1>
               <h2 className="hero-description">AI 提效实战专家</h2>
               <div className="hero-badges">
                 <span className="badge-item">微软 AI 产品经理认证</span>
