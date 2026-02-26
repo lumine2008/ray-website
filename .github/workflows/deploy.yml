@@ -36,14 +36,13 @@ jobs:
     - name: Deploy to Aliyun
       uses: easingthemes/ssh-deploy@v4
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_PASSWORD }}
         REMOTE_HOST: ${{ secrets.ALIYUN_HOST }}
         REMOTE_USER: ${{ secrets.ALIYUN_USERNAME }}
         REMOTE_PORT: 22
+        PASSWORD: ${{ secrets.ALIYUN_PASSWORD }}
         SOURCE: "build/"
         TARGET: "/var/www/leiman-website"
-        EXCLUDE: "/dist/, /node_modules/"
-        ARGS: "-rltgoDzvO"
+        ARGS: "-avz --delete"
     
     - name: Restart Nginx
       uses: appleboy/ssh-action@master
