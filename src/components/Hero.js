@@ -25,7 +25,7 @@ function Hero() {
               <li className="nav-item"><a className="nav-link" href="#courses">课程</a></li>
               <li className="nav-item"><a className="nav-link" href="#clients">客户</a></li>
               <li className="nav-item"><a className="nav-link" href="#gallery">瞬间</a></li>
-              <li className="nav-item"><a className="nav-link" href="/media.html" target="_blank">博主合作</a></li>
+              <li className="nav-item"><a className="nav-link" href="/media" target="_blank">博主合作</a></li>
               <li className="nav-item"><a className="nav-link" href="#contact">联系</a></li>
             </ul>
           </div>
