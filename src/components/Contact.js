@@ -1,33 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Contact.css';
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    course: '',
-    message: ''
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // 这里可以添加实际的表单提交逻辑
-    console.log('表单提交:', formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
-
   return (
     <section className="contact-section" id="contact">
       <div className="container">
@@ -80,11 +54,11 @@ function Contact() {
                   <span>📕</span>
                   <span>小红书</span>
                 </a>
-                <a href="#" className="social-btn wechat">
+                <a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener noreferrer" className="social-btn wechat">
                   <span>💬</span>
                   <span>微信</span>
                 </a>
-                <a href="#" className="social-btn douyin">
+                <a href="https://www.douyin.com/" target="_blank" rel="noopener noreferrer" className="social-btn douyin">
                   <span>▶️</span>
                   <span>抖音</span>
                 </a>

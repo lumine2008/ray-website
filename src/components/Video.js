@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Video.css';
 
 function Video() {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlay = () => {
-    // 打开小红书视频链接
-    window.open('https://www.xiaohongshu.com/discovery/item/68686ecb0000000012022078?source=webshare&xhsshare=pc_web&xsec_token=ABo-ZrCVaRvSur_GAtW7AcUERuc817NVqql6WvsslHz64=&xsec_source=pc_share', '_blank');
-  };
-
   return (
     <section className="video-section" id="video">
       <div className="container">
@@ -26,7 +19,7 @@ function Video() {
             </div>
             
             {/* 播放按钮 */}
-            <button className="play-button" onClick={handlePlay}>
+            <button className="play-button" onClick={() => window.open('https://www.xiaohongshu.com/discovery/item/68686ecb0000000012022078?source=webshare&xhsshare=pc_web&xsec_token=ABo-ZrCVaRvSur_GAtW7AcUERuc817NVqql6WvsslHz64=&xsec_source=pc_share', '_blank')}>
               <span className="play-icon">▶</span>
               <span className="play-text">点击播放</span>
             </button>
