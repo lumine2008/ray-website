@@ -34,15 +34,15 @@ jobs:
         CI: false
     
     - name: Deploy to Aliyun
-      uses: easingthemes/ssh-deploy@v4
-      env:
-        REMOTE_HOST: ${{ secrets.ALIYUN_HOST }}
-        REMOTE_USER: ${{ secrets.ALIYUN_USERNAME }}
-        REMOTE_PORT: 22
-        PASSWORD: ${{ secrets.ALIYUN_PASSWORD }}
-        SOURCE: "build/"
-        TARGET: "/var/www/leiman-website"
-        ARGS: "-avz --delete"
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.ALIYUN_HOST }}
+        username: ${{ secrets.ALIYUN_USERNAME }}
+        password: ${{ secrets.ALIYUN_PASSWORD }}
+        protocol: sftp
+        port: 22
+        local-dir: ./build/
+        server-dir: /var/www/leiman-website/
     
     - name: Restart Nginx
       uses: appleboy/ssh-action@master
