@@ -1,0 +1,202 @@
+/* Clients 组件样式 */
+.clients-section {
+  background: white;
+  padding: 100px 0;
+}
+
+/* 分类筛选 */
+.category-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Logo 提示 */
+.logo-notice {
+  text-align: center;
+  padding: 15px 25px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+  border-radius: 10px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.logo-notice p {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.logo-notice a {
+  color: var(--primary-blue);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.logo-notice a:hover {
+  color: var(--primary-purple);
+}
+
+.filter-btn {
+  padding: 10px 25px;
+  border: 2px solid rgba(37, 99, 235, 0.2);
+  background: white;
+  color: var(--text-dark);
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* 客户网格 */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.client-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 20px;
+  background: var(--light-bg);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.client-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.client-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.client-logo::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.client-item:hover .client-logo::before {
+  opacity: 1;
+  animation: shine 0.8s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+.client-logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.client-item:hover .client-logo {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.client-name {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 客户统计 */
+.clients-stats {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .clients-section {
+    padding: 60px 0;
+  }
+  
+  .clients-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  
+  .clients-stats {
+    gap: 40px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+}

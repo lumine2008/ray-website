@@ -1,0 +1,13 @@
+.media-page {
+  width: 100%;
+  min-height: 100vh;
+  background: white;
+  padding-top: 80px;
+}
+
+.media-page .navbar-custom {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}

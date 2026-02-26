@@ -1,0 +1,193 @@
+/* Testimonials 组件样式 */
+.testimonials-section {
+  background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section .section-title h2 {
+  background: linear-gradient(135deg, #60A5FA, #A78BFA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.testimonials-section .section-title p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 轮播容器 */
+.testimonials-carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+}
+
+/* 评价卡片 */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.testimonial-card.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.testimonial-rating {
+  color: #FBBF24;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.testimonial-content {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-name {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.author-company {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+/* 箭头按钮 */
+.carousel-arrow {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.carousel-arrow.prev {
+  margin-right: 20px;
+}
+
+.carousel-arrow.next {
+  margin-left: 20px;
+}
+
+/* 指示器 */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: white;
+  border-color: white;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  border-color: white;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 60px 0;
+  }
+  
+  .testimonial-card {
+    padding: 30px 20px;
+  }
+  
+  .testimonial-content {
+    font-size: 1rem;
+  }
+  
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.8rem;
+  }
+  
+  .carousel-arrow.prev {
+    margin-right: 10px;
+  }
+  
+  .carousel-arrow.next {
+    margin-left: 10px;
+  }
+}

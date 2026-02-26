@@ -1,0 +1,50 @@
+name: Deploy to Aliyun
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: package-lock.json
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build
+      run: npm run build
+    
+    - name: Deploy to Aliyun
+      uses: easingthemes/ssh-deploy@v4
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_PASSWORD }}
+        REMOTE_HOST: ${{ secrets.ALIYUN_HOST }}
+        REMOTE_USER: ${{ secrets.ALIYUN_USERNAME }}
+        REMOTE_PORT: 22
+        SOURCE: "build/"
+        TARGET: "/var/www/leiman-website"
+        EXCLUDE: "/dist/, /node_modules/"
+        ARGS: "-rltgoDzvO"
+    
+    - name: Restart Nginx
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.ALIYUN_HOST }}
+        username: ${{ secrets.ALIYUN_USERNAME }}
+        password: ${{ secrets.ALIYUN_PASSWORD }}
+        script: |
+          chown -R www:www /var/www/leiman-website
+          chmod -R 755 /var/www/leiman-website
+          nginx -t
+          systemctl restart nginx

@@ -1,0 +1,163 @@
+# ======================
+# 依赖和构建
+# ======================
+
+# 依赖目录
+node_modules/
+
+# 构建输出
+build/
+
+# 锁定文件（可选，团队开发建议提交）
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+
+# ======================
+# 部署相关文件
+# ======================
+
+# 部署包
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# 部署临时目录
+deploy_package/
+deploy/
+dist/
+out/
+
+# 部署脚本（如果不需要版本控制）
+# deploy.sh
+# deploy-now.ps1
+# deploy-to-aliyun.ps1
+# 一键部署.bat
+
+
+# ======================
+# 日志和缓存
+# ======================
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 缓存目录
+.cache/
+.temp/
+tmp/
+temp/
+
+# npm 缓存
+.npm/
+.eslintcache
+
+
+# ======================
+# 系统和编辑器
+# ======================
+
+# 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# WebStorm/IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+
+# ======================
+# 文档（可选）
+# ======================
+
+# 部署文档（如果不需要版本控制）
+# DEPLOYMENT.md
+# GITHUB-DEPLOY.md
+# README-部署.md
+# 部署说明.txt
+# 一键部署.bat
+
+
+# ======================
+# 环境和配置
+# ======================
+
+# 环境变量
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 配置文件（如果包含敏感信息）
+# .env
+# config.local.js
+# settings.local.json
+
+
+# ======================
+# 测试
+# ======================
+
+# 测试覆盖率
+coverage/
+.nyc_output/
+
+# 测试临时文件
+*.test.js.snap
+
+
+# ======================
+# 其他
+# ======================
+
+# TypeScript
+*.tsbuildinfo
+
+# 性能分析
+*.prof
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.old
+
+# 图片压缩
+*.min.png
+*.min.jpg
+*.min.gif
+

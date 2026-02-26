@@ -1,0 +1,374 @@
+/* Courses 组件样式 */
+.courses-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  padding: 100px 0;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  perspective: 1000px;
+}
+
+/* 翻转卡片 */
+.course-card {
+  background-color: transparent;
+  height: 400px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.course-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.course-card:hover .course-card-inner {
+  transform: rotateY(180deg);
+}
+
+.course-card-front,
+.course-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.course-card-front {
+  background: white;
+}
+
+.course-card-back {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.course-icon {
+  font-size: 4.5rem;
+  margin-bottom: 20px;
+}
+
+.course-title {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.course-subtitle {
+  font-size: 1rem;
+  color: var(--primary-blue);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.course-meta {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.meta-item {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  background: var(--light-bg);
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.course-hover-hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+.course-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+.course-audience {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 25px;
+  text-align: left;
+  width: 100%;
+}
+
+.course-card-back .btn-gradient {
+  background: white;
+  color: var(--primary-blue);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.course-card-back .btn-gradient:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-purple);
+}
+
+/* 课程详情弹窗 */
+.course-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 900px;
+  max-height: calc(100vh - 100px);
+  position: relative;
+  animation: slideUp 0.4s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary-blue), var(--primary-purple));
+  border-radius: 10px;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  border: none;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+  z-index: 10000;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.6);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 50px 50px 35px;
+  background: white;
+  margin-bottom: 35px;
+}
+
+.modal-icon {
+  font-size: 5rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal-title-wrapper h3 {
+  font-size: 2.2rem;
+  color: #1E293B;
+  margin-bottom: 8px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.modal-title-wrapper p {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 0 50px 40px;
+}
+
+.modal-section {
+  margin-bottom: 35px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  border-left: 5px solid var(--primary-blue);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.modal-section h4 {
+  font-size: 1.4rem;
+  color: #1E293B;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+}
+
+.modal-section p {
+  color: #334155;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.gains-list,
+.outline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gains-list li,
+.outline-list li {
+  padding: 18px 0 18px 40px;
+  position: relative;
+  color: #1E293B;
+  line-height: 1.8;
+  border-bottom: 1px solid #E2E8F0;
+  font-size: 1.05rem;
+  background: white;
+}
+
+.gains-list li:last-child,
+.outline-list li:last-child {
+  border-bottom: none;
+}
+
+.gains-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 15px;
+  color: white;
+  background: #10B981;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.outline-list li::before {
+  content: '📖';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  font-size: 1.2rem;
+}
+
+.modal-footer {
+  padding: 30px 50px 50px;
+  text-align: center;
+  background: linear-gradient(180deg, transparent, rgba(37, 99, 235, 0.05));
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .course-modal {
+    padding: 10px;
+  }
+  
+  .modal-content {
+    max-height: calc(100vh - 20px);
+    border-radius: 15px;
+  }
+  
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem;
+  }
+  
+  .modal-header {
+    padding: 55px 20px 15px;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .modal-icon {
+    font-size: 4rem;
+  }
+  
+  .modal-title-wrapper h3 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-section {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    padding: 20px 20px 30px;
+  }
+}
