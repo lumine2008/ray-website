@@ -91,27 +91,7 @@ section {
 /* 响应式调整 */
 @media (max-width: 768px) {
   .section-title h2 {
-    font-size: 1.8rem;
-  }
-  
-  .section-title p {
-    font-size: 1rem;
-  }
-  
-  section {
-    padding: 60px 0;
-  }
-  
-  .btn-gradient {
-    padding: 10px 25px;
-    font-size: 0.95rem;
-  }
-}
-
-/* 小屏幕手机 */
-@media (max-width: 576px) {
-  .section-title h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
   
   .section-title p {
@@ -122,8 +102,33 @@ section {
     padding: 40px 0;
   }
   
+  .btn-gradient {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 小屏幕手机 */
+@media (max-width: 576px) {
+  .section-title h2 {
+    font-size: 1.3rem;
+  }
+  
+  .section-title p {
+    font-size: 0.85rem;
+  }
+  
+  section {
+    padding: 25px 0;
+  }
+  
   .container {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  
+  .btn-gradient {
+    padding: 6px 18px;
+    font-size: 0.85rem;
   }
 }

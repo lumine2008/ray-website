@@ -8,12 +8,16 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+// 检测是否为移动设备
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 // 初始化 AOS 动画库
 AOS.init({
-  duration: 800,
+  duration: isMobile ? 400 : 800, // 移动端动画更快
   easing: 'ease-in-out',
   once: true,
-  offset: 100
+  offset: isMobile ? 50 : 100, // 移动端触发距离更短
+  disable: isMobile // 或者直接在移动端禁用动画
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
