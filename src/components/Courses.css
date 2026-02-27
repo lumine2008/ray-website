@@ -14,7 +14,7 @@
 /* 翻转卡片 */
 .course-card {
   background-color: transparent;
-  height: 400px;
+  height: 320px;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -39,13 +39,13 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 20px;
-  padding: 40px 30px;
+  border-radius: 15px;
+  padding: 25px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .course-card-front {
@@ -59,22 +59,22 @@
 }
 
 .course-icon {
-  font-size: 4.5rem;
-  margin-bottom: 20px;
+  font-size: 3.5rem;
+  margin-bottom: 15px;
 }
 
 .course-title {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: var(--text-dark);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-weight: 700;
 }
 
 .course-subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--primary-blue);
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .course-meta {
@@ -328,15 +328,46 @@
 
 /* 响应式 */
 @media (max-width: 768px) {
+  .courses-section {
+    padding: 40px 0;
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .course-card {
+    height: 280px;
+  }
+  
+  .course-card-front,
+  .course-card-back {
+    padding: 20px 15px;
+  }
+  
+  .course-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .course-title {
+    font-size: 1rem;
+  }
+  
+  .course-subtitle {
+    font-size: 0.8rem;
+  }
+  
   .course-modal {
     padding: 10px;
   }
-  
+
   .modal-content {
     max-height: calc(100vh - 20px);
     border-radius: 15px;
   }
-  
+
   .modal-close {
     top: 10px;
     right: 10px;
@@ -344,31 +375,70 @@
     height: 45px;
     font-size: 1.8rem;
   }
-  
+
   .modal-header {
     padding: 55px 20px 15px;
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
-  
+
   .modal-icon {
     font-size: 4rem;
   }
-  
+
   .modal-title-wrapper h3 {
     font-size: 1.5rem;
   }
-  
+
   .modal-body {
     padding: 20px;
   }
-  
+
   .modal-section {
     padding: 20px;
   }
-  
+
   .modal-footer {
     padding: 20px 20px 30px;
+  }
+}
+
+/* 小屏幕手机 */
+@media (max-width: 576px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .course-card {
+    height: 260px;
+  }
+  
+  .course-card-front,
+  .course-card-back {
+    padding: 18px 12px;
+  }
+  
+  .course-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .course-title {
+    font-size: 0.9rem;
+  }
+  
+  .course-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .course-meta {
+    margin: 8px 0;
+  }
+  
+  .meta-item {
+    font-size: 0.75rem;
+    padding: 4px 10px;
   }
 }
