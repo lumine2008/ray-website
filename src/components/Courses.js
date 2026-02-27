@@ -275,8 +275,6 @@ function Courses() {
             <div 
               key={index} 
               className="course-card"
-              data-aos="flip-left"
-              data-aos-delay={index * 100}
               onClick={() => setSelectedCourse(course)}
             >
               <div className="course-card-inner">
