@@ -13,11 +13,11 @@ const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
 
 // 初始化 AOS 动画库
 AOS.init({
-  duration: isMobile ? 400 : 800, // 移动端动画更快
+  duration: isMobile ? 0 : 800, // 移动端禁用动画
   easing: 'ease-in-out',
   once: true,
-  offset: isMobile ? 50 : 100, // 移动端触发距离更短
-  disable: isMobile // 或者直接在移动端禁用动画
+  offset: isMobile ? 0 : 100, // 移动端立即触发
+  disable: isMobile // 移动端完全禁用动画
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
