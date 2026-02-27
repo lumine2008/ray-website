@@ -186,17 +186,58 @@
   .clients-section {
     padding: 60px 0;
   }
-  
+
   .clients-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
   
+  .client-item {
+    padding: 15px 10px;
+  }
+  
+  .client-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .client-name {
+    font-size: 0.75rem;
+  }
+
   .clients-stats {
     gap: 40px;
   }
-  
+
   .stat-number {
     font-size: 2rem;
+  }
+}
+
+/* 小屏幕手机 */
+@media (max-width: 576px) {
+  .clients-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  .client-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+  }
+  
+  .client-name {
+    font-size: 0.7rem;
+  }
+  
+  .category-filter {
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 8px 15px;
+    font-size: 0.85rem;
   }
 }
