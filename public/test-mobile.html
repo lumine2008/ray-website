@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-box {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-box h2 {
+            color: #2563EB;
+            margin-top: 0;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success {
+            background: #10B981;
+            color: white;
+        }
+        .error {
+            background: #EF4444;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-box">
+        <h2>📱 移动端测试页面</h2>
+        <p>如果你能看到这个页面，说明基础加载正常</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>🔍 加载测试</h2>
+        <div id="status"></div>
+    </div>
+    
+    <div class="test-box">
+        <h2>📊 设备信息</h2>
+        <p>屏幕宽度：<span id="width"></span>px</p>
+        <p>屏幕高度：<span id="height"></span>px</p>
+        <p>User Agent: <span id="ua"></span></p>
+    </div>
+    
+    <div class="test-box">
+        <h2>🔗 测试链接</h2>
+        <p><a href="/">返回首页</a></p>
+        <p><a href="/media">博主合作</a></p>
+    </div>
+    
+    <script>
+        // 显示设备信息
+        document.getElementById('width').textContent = window.innerWidth;
+        document.getElementById('height').textContent = window.innerHeight;
+        document.getElementById('ua').textContent = navigator.userAgent;
+        
+        // 测试加载
+        const status = document.getElementById('status');
+        status.innerHTML = '<div class="success">✅ JavaScript 加载成功</div>';
+        
+        // 测试图片加载
+        const img = new Image();
+        img.onload = function() {
+            status.innerHTML += '<div class="success">✅ 图片加载成功</div>';
+        };
+        img.onerror = function() {
+            status.innerHTML += '<div class="error">❌ 图片加载失败</div>';
+        };
+        img.src = '/images/image001.png';
+        
+        // 测试 API
+        fetch('/images/image001.png')
+            .then(response => {
+                if (response.ok) {
+                    status.innerHTML += '<div class="success">✅ 网络请求正常</div>';
+                } else {
+                    status.innerHTML += '<div class="error">❌ 网络请求失败</div>';
+                }
+            })
+            .catch(err => {
+                status.innerHTML += '<div class="error">❌ 网络错误：' + err.message + '</div>';
+            });
+    </script>
+</body>
+</html>
