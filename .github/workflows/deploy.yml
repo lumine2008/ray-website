@@ -51,7 +51,17 @@ jobs:
         username: ${{ secrets.ALIYUN_USERNAME }}
         password: ${{ secrets.ALIYUN_PASSWORD }}
         script: |
-          chown -R www:www /var/www/leiman-website
-          chmod -R 755 /var/www/leiman-website
+          # 复制文件到 Nginx 网站目录
+          cp -r /var/www/leiman-website/* /www/server/nginx/html/
+          
+          # 设置权限
+          chown -R www:www /www/server/nginx/html
+          chmod -R 755 /www/server/nginx/html
+          
+          # 测试 Nginx 配置
           nginx -t
+          
+          # 重启 Nginx
           systemctl restart nginx
+          
+          echo "✅ 部署完成！"
