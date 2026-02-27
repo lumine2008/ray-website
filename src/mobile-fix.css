@@ -1,0 +1,35 @@
+/* 移动端强制显示修复 */
+@media (max-width: 768px) {
+  /* 强制显示所有内容 */
+  .hero-section,
+  .about-section,
+  .courses-section,
+  .clients-section,
+  .gallery-section,
+  .testimonials-section,
+  .video-section,
+  .contact-section,
+  .footer-section {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* 移除所有动画相关属性 */
+  [data-aos] {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  /* 确保容器可见 */
+  .container {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  
+  /* 确保行可见 */
+  .row {
+    display: flex !important;
+    opacity: 1 !important;
+  }
+}
